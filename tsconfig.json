@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "types": ["node", "selenium-webdriver"],
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "allowJs": true, // <--- Add this line
+    "checkJs": false // <--- Add this line to prevent TS from trying to type check JS files strictly
+  },
+  "include": ["src/**/*", "config/**/*"],
+  "exclude": ["node_modules"]
+}

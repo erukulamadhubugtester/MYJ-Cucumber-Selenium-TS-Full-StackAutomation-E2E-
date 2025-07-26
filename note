@@ -1,0 +1,12 @@
+👉after edit code
+rm -rf node_modules yarn.lock
+yarn cache clean
+yarn install
+
+👉Run the TypeScript compiler:
+npx tsc
+
+👉 Run API test:
+Use Jest or Mocha for running API test:
+
+npx jest src/apiTests/loginApiTest.ts
