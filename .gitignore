@@ -1,0 +1,8 @@
+# Node.js / Playwright / VS Code / Logs / Reports
+node_modules/
+allure-results/
+allure-report/
+.vscode/
+.env
+*.log
+.DS_Store
