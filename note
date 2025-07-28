@@ -10,3 +10,5 @@ npx tsc
 Use Jest or Mocha for running API test:
 
 npx jest src/apiTests/loginApiTest.ts
+
+write all imparent files and command s aslo 
