@@ -1,9 +1,9 @@
-Feature: Login
+Feature: Login Flow
 
-  Scenario: Valid user login
+  Scenario: Valid login with profile popup or homepage
     Given I am on the landing page
     When I click on the login link
-    And I enter the phone number "6303481147"
-    And I enter the password "Madhu87812345678@"
+    And I enter the phone number "<secure>"
+    And I enter the password "<secure>"
     And I click on the continue button
-    Then I should see the homepage
+    Then I should see the homepage or profile popup

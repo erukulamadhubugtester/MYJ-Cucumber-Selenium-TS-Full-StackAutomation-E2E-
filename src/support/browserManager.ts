@@ -1,31 +1,35 @@
 // src/support/browserManager.ts
-import { Builder, WebDriver } from "selenium-webdriver";
+import { Builder } from "selenium-webdriver";
 import * as chrome from "selenium-webdriver/chrome";
+import dotenv from "dotenv";
 
-export let driver: any;
+dotenv.config();
 
-export async function getDriver(): Promise<any> {
-  if (!driver) {
-    console.log("🚀 Launching Chrome browser...");
-    const options = new chrome.Options();
-    options.addArguments("--disable-gpu", "--no-sandbox");
+export async function getDriver() {
+  console.log("🚀 Launching Chrome browser...");
 
-    const isHeadless = process.env.HEADLESS === "true";
-    if (isHeadless) options.addArguments("--headless=new");
+  const options = new chrome.Options();
 
-    driver = await new Builder()
-      .forBrowser("chrome")
-      .setChromeOptions(options)
-      .build();
+  options.addArguments(
+    "--disable-blink-features=AutomationControlled",
+    "--disable-infobars",
+    "--no-sandbox",
+    "--disable-gpu"
+  );
 
-    console.log("✅ Chrome browser launched.");
+  if (process.env.HEADLESS === "true") {
+    options.addArguments("--headless=new");
   }
+
+  (options as any).excludeSwitches = ["enable-automation"];
+
+  const driver = await new Builder()
+    .forBrowser("chrome")
+    .setChromeOptions(options)
+    .build();
+
+  await driver.manage().window().maximize();
+
+  console.log("✅ Chrome browser launched and maximized.");
   return driver;
-}
-
-export async function quitDriver(): Promise<void> {
-  if (driver) {
-    await driver.quit();
-    driver = null!;
-  }
 }

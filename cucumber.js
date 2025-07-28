@@ -2,7 +2,7 @@ module.exports = {
   default: {
     require: ["./src/stepDefinitions/**/*.ts", "./src/support/*.ts"],
     paths: ["./features/**/*.feature"],
-    format: ["html:reports/cucumber-report.html"],
+    format: ["html:reports/cucumber-report.html", "progress"],
     parallel: 1,
     publishQuiet: true,
     requireModule: ["ts-node/register"],
