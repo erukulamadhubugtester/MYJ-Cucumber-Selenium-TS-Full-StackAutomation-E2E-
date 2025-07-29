@@ -3,15 +3,6 @@ import { Given, When, Then } from "@cucumber/cucumber";
 import assert from "assert";
 import { highlightElement } from "../utils/h2_highlightUtils";
 
-// // ✅ Step 1: Navigate to landing page
-// Given("I am on the landing page", { timeout: 20000 }, async function () {
-//   await this.driver.get(process.env.BASE_URL || "https://makeyourjodi.com");
-//   await this.driver.wait(
-//     until.elementLocated(By.css("a[href='/login']")),
-//     10000
-//   );
-// });
-
 // ✅ Step 2: Verify homepage header text
 Then("I should see the homepage header text", async function () {
   const header = await this.driver.wait(

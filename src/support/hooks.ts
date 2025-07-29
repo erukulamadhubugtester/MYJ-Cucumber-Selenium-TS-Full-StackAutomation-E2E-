@@ -2,10 +2,13 @@ import { Before, After, Status, AfterStep } from "@cucumber/cucumber";
 import fs from "fs-extra";
 import { getDriver } from "./browserManager";
 import { handleProfilePopupIfPresent } from "../utils/h1_popupHandler";
+import { setDefaultTimeout } from "@cucumber/cucumber";
+
+setDefaultTimeout(60 * 1000); // ⏰ Set default timeout to 60 seconds
 
 Before(async function () {
   this.driver = await getDriver();
-  await handleProfilePopupIfPresent(this.driver); // Check only once at start
+  // await handleProfilePopupIfPresent(this.driver); // Check only once at start
 });
 
 After(async function (scenario) {

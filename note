@@ -1,3 +1,16 @@
+# Clone the repo
+
+git clone https://github.com/your-user/MYJ-Cucumber-Selenium-TS-Full-StackAutomation-E2E-.git
+cd MYJ_FULL_STACK_AUTOMATION_LIVE
+
+# Install dependencies
+
+npm install
+
+# or if you're using yarn
+
+yarn install
+
 👉after edit code
 rm -rf node_modules yarn.lock
 yarn cache clean
@@ -11,4 +24,24 @@ Use Jest or Mocha for running API test:
 
 npx jest src/apiTests/loginApiTest.ts
 
-write all imparent files and command s aslo 
+👉 run install new packages node
+npm i
+
+write all imparent files and command s aslo
+
+edit files - fresh files
+
+git add .
+git commit -m" add message "
+git push
+
+other person edit
+git pull
+git status
+edit file new
+
+git add .
+git commit -m"message "
+git push
+
+git stash
