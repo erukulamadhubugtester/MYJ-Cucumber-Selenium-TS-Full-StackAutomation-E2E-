@@ -6,7 +6,8 @@
     "clean": "rimraf dist",
     "build": "tsc",
     "pretest": "npm run build",
-    "test": "cucumber-js --require-module ts-node/register --require src/step_definitions/**/*.ts features/**/*.feature"
+    "test": "cucumber-js --require-module ts-node/register --require src/step_definitions/**/*.ts features/**/*.feature",
+    "test:userhome": "cucumber-js features/userhome.feature"
   },
   "keywords": [],
   "author": "",

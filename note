@@ -50,4 +50,18 @@ git stash
 
 
 #  my office code branch name is madhu-office 
+git checkout main          # Switch to main branch
+git pull origin main       # Update with remote changes
+git merge madhu-office     # Merge changes from madhu-office into main
+git push origin main       # Push merged main branch to GitHub
+
+
+ git log --oneline           #check out code  
+
+ git checkout madhu-office   # switch to my branch
+
+ git branch                 #  current branch check 
+
+
+
 #  my homw code is branch name is madhu-home 

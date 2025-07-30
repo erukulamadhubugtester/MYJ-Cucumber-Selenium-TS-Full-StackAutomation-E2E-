@@ -1,4 +1,5 @@
 import { By, WebDriver, until, WebElement } from "selenium-webdriver";
+import { handleProfilePopupIfPresent } from "../utils/h1_popupHandler";
 import { highlightElement } from "../utils/h2_highlightUtils";
 
 export class LoginPage {
@@ -21,6 +22,7 @@ export class LoginPage {
       until.elementLocated(By.css('a[href="/login"]')),
       15000
     );
+    await highlightElement(this.driver, loginLink);
     await loginLink.click();
   }
 
@@ -39,6 +41,7 @@ export class LoginPage {
       until.elementLocated(By.css("input#password")),
       50000
     );
+    await highlightElement(this.driver, passwordInput);
     await passwordInput.sendKeys(password);
   }
 

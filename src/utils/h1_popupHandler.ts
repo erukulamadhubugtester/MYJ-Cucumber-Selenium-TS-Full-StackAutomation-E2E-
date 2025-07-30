@@ -1,28 +1,40 @@
-import { By, until, WebDriver } from "selenium-webdriver";
+// src/utils/handleProfilePopup.ts
+import { By, until } from "selenium-webdriver";
 
 export async function handleProfilePopupIfPresent(driver: any) {
+  console.log("⏳ Checking for profile popup...");
+
   try {
-    // Wait max 3s for the popup header
     const popupHeader = await driver.wait(
       until.elementLocated(
         By.xpath("//h2[contains(text(),'Your profile is')]")
       ),
-      3000
+      7000
     );
 
     if (await popupHeader.isDisplayed()) {
-      const percentageText = await driver.findElement(By.xpath("//svg//text"));
-      const percent = await percentageText.getText();
-      console.log(`🔍 Profile Completion: ${percent}`);
+      console.log("✅ Profile popup is displayed.");
 
-      const closeBtn = await driver.findElement(
-        By.css("button[aria-label='Close modal']")
+      const closeBtn = await driver.wait(
+        until.elementLocated(By.css("button[aria-label='Close modal']")),
+        3000
       );
-      await closeBtn.click();
-      console.log("✅ Closed profile popup.");
+
+      await driver.wait(until.elementIsVisible(closeBtn), 3000);
+      await driver.wait(until.elementIsEnabled(closeBtn), 3000);
+
+      try {
+        await closeBtn.click();
+        console.log("✅ Popup closed with normal click.");
+      } catch (clickErr) {
+        console.warn("❗Normal click failed. Trying JavaScript click...");
+        await driver.executeScript("arguments[0].click();", closeBtn);
+      }
+
+      await driver.wait(until.stalenessOf(popupHeader), 5000);
+      console.log("✅ Popup fully closed and removed from DOM.");
     }
   } catch (err) {
-    // Optional: Uncomment to see when popup isn't shown
-    // console.log("ℹ️ Profile popup not shown. Proceeding...");
+    console.log("ℹ️ Profile popup not shown (likely 100% complete).");
   }
 }

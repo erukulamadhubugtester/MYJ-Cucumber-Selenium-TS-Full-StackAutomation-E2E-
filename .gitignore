@@ -10,3 +10,4 @@ dist/
 package-lock.json/
 yarn.lock
 .history/
+reports/

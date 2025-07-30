@@ -1,0 +1,11 @@
+Correct ✅ — you do not need a separate logs folder under src/pages/.
+
+The logs/ folder you already have at the project root (as shown in your screenshot) is perfect for storing:
+
+runtime execution logs
+
+step-level logs
+
+scenario start/end logs
+
+error/debug info
