@@ -1,6 +1,12 @@
 Feature: User Homepage UI
 
-  Scenario: Verify modules on homepage after login
+  Background:
     Given I am logged in
     And profile popup is closed if shown
+
+  Scenario: Verify message and all dropdown/input/button elements on homepage
     Then I should see the "Find the perfect connection for you" message
+    And I should see the age range "18 - 27" in the dropdown
+    And I should see the Education dropdown
+    And I should see the profession input field
+    And I should see the Find button

@@ -15,10 +15,12 @@
   "description": "",
   "devDependencies": {
     "@cucumber/cucumber": "^12.1.0",
+    "@types/chai": "^5.2.2",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^24.1.0",
     "@types/selenium-webdriver": "^4.1.28",
     "axios": "^1.11.0",
+    "chai": "^5.2.1",
     "chromedriver": "^138.0.4",
     "dotenv": "^17.2.1",
     "fs-extra": "^11.3.0",
