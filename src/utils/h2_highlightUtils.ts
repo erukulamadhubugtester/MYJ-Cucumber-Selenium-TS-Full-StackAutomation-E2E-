@@ -23,7 +23,7 @@ export async function highlightElement(
 
     // Apply highlight
     await driver.executeScript(
-      "arguments[0].style.border='3px solid red'; arguments[0].style.transition='border 0.3s ease-in-out'; arguments[0].style.backgroundColor='yellow';",
+      "arguments[0].style.border='3px solid red';", //  arguments[0].style.transition='border 0.3s ease-in-out'; arguments[0].style.backgroundColor='yellow';",
       element
     );
 
